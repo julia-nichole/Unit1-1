@@ -1,0 +1,8 @@
+body {
+    background-color:#A8A8A8;
+}
+header {
+font-family: 'Creepster', cursive;
+color:#6D216C;
+display: flex;
+}
