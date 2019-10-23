@@ -3,12 +3,18 @@
   }
 
 body {
-background-color:black;
+
+background-image: url('https://i.imgur.com/ERjpHmu.jpg');
+    background-size: cover;
+    height: 100vh;
+    padding:0;
+    margin:0;
 }
+
 header {
 font-family: 'Creepster', cursive;
 font-size: 35px;
-text-shadow: 0 0 15px #FF0000;
+text-shadow: 0 0 15px rgb(64, 255, 0);
 color:#8E2A8D;
 display: flex;
 justify-content: center;
@@ -17,32 +23,40 @@ padding: 10px ;
 section { 
     
 display: grid;
-grid-template-columns:1fr 1fr 1fr 1fr ;
+grid-template-columns:.5fr 1fr 1fr .5fr ;
 grid-template-rows: 3fr 2fr 1fr 1fr ;
 border: 2vmin solid #8E2A8D;
-box-shadow: 0 0 20px #FF0000;
+box-shadow: 0 0 20px rgb(64, 255, 0);
 margin: 0 auto;
 height: 75vh;
 width:90vh;
 }
 p{
-grid-column:1/4;
+font-family: 'Cormorant Garamond', serif;
+font-size: 20px;
+text-shadow: 0 0 15px red ;
+display:flex;
+justify-content: center;
+grid-column:2/4;
 grid-row :1/3;
 color:white;
 }
-button{
+ button{
     background: none;
     border: solid, black;
-    box-shadow: #FF0000;
+    box-shadow:rgb(64, 255, 0);
     cursor: pointer;
     font-family: 'Creepster', cursive;
     font-size: 35px;
-    text-shadow: 0 0 15px #FF0000;
+    text-shadow: 0 0 15px rgb(64, 255, 0);
     color:#8E2A8D;
-    /* grid-column:1/4;
-    grid-row :3/4; */
+     }
   
-}
+   
+  
+
+  
+
 #btn1{
 grid-column:2/4;
 grid-row :3/4;
