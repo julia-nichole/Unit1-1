@@ -1,7 +1,16 @@
 // const//
-const story = {}
+const story = {
+ intro: "You and your partner our on your way to visit your mother ,normally you arrive before dinner. But you had a late start and its now dark. So you decide to find a place for the night. You see a house in the distance . ..",
+ 
+ rooms:"",
+ 
+ driving:"",
+}
 
-const selected = {}
+const selected = {
+    intro1:{button1: "stop to see if they rent rooms", button2:"continue driving",}
+
+}
 
 
 
