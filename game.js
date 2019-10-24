@@ -2,7 +2,7 @@
 const story = {
  intro: "You and your partner our on your way to visit your mother ,normally you arrive before dinner. But you had a late start and its now dark. So you decide to find a place for the night. You see a house in the distance . ..",
  
- rooms:"",
+ rooms:"An elderly couple answers the door and informs you they don't rent rooms. But they would be happy to let you stay the night ",
  
  driving:"",
 }
