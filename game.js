@@ -1,7 +1,7 @@
 // const//
 const story = {
  loadingScreen:"“Walls have ears. Doors have eyes. Trees have voices. Beasts tell lies. Beware the rain. Beware the snow. Beware the man You think you know.",
- intro: "You and your partner our on your way to visit your mother ,normally you arrive before dinner. But you had a late start and its now dark. So you decide to find a place for the night. You see a house in the distance . ..",
+ intro: "You and your partner our on your way to visit your mother, normally you arrive before dinner. But you had a late start and its now dark. So you decide to find a place for the night. You see a house in the distance . ..",
  
  rooms:"An elderly couple answers the door and informs you they don't rent rooms. But they would be happy to let you stay the night ",
  
@@ -18,6 +18,7 @@ const story = {
 }
 
 const selected = {
+    loadingScreens:{button1:"choose",button2:"wisely"},
     intro1:{button1: "stop to see if they rent rooms", button2:"continue driving",},
     rooms1:{button1:" You decide to take the nice couple up on their offer and they welcome you inside ",button2:"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car ",},
     driving1:{button1:"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", button2:" You decide to speed up the car but continue in search of the nearest lodging "},
@@ -27,26 +28,40 @@ const selected = {
 
 // cached elements :
 const msg = document.getElementById('game');
-const button1 = document.getElementById('btn1');
-const button2= document.getElementById('btn2');
-
-
+const buttonOne = document.getElementById('btn1');
+const buttonTwo = document.getElementById('btn2');
+const headerEl = document.querySelector('header');
+const sectionEl = document.getElementById('gamemsg');
+const start = document.getElementById('start');
+const resetEl = document.getElementById('reset');
 // event listeners//
 
-document.getElementById("btn1").addEventListener("click", choiceOne);
-document.getElementById("btn2").addEventListener("click", choiceTwo);
-document.getElementById("start").addEventListener("click", start);
-document.getElementById("reset").addEventListener("click", reset);
 
+document.getElementById("btn1").addEventListener("click", buttonOne);
+document.getElementById("btn2").addEventListener("click", buttonTwo);
+document.getElementById("start").addEventListener("click", startStory);
+document.getElementById("reset").addEventListener("click", resetGame);
 
 
 // functions
-function start(){
-
+var state;
+init();
+function startStory(evt){
+switch (state){
+    case story.loadingScreen:
+        buttonOne.textContent = selected.loadingScreens['button1'];
+        buttonTwo.textContent = selected.loadingScreens['button2'];
+     break;
+     case story.intro:
+            buttonOne.textContent = selected.intro['button1'];
+            buttonTwo.textContent = selected.intro['button2'];
+    break;
+    default:
+}
 }
 
 function choiceOne(){
-
+ console.log('partyuyuuutljshdlfkjhgdf')
 }
 
 function choiceTwo(){
@@ -54,6 +69,16 @@ function choiceTwo(){
 }
 
 
-function reset(evt) {
+function resetGame(evt) {
     window.location.reload();
+  }
+
+
+  function render() {
+    sectionEl.textContent = state;
+    startStory();
+  }
+  function init(){
+      state = story.loadingScreen;
+      render();
   }

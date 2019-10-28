@@ -26,8 +26,11 @@ header {
  color:#8E2A8D;
 
 }
-section { 
-  
+#game { 
+font-family: 'Creepster', cursive;
+font-size: 20px;
+text-shadow: 0 0 15px rgb(64, 255, 0);
+color:#8E2A8D;
 display: grid;
 grid-template-columns:.5fr 1fr 1fr .5fr ;
 grid-template-rows: 3fr 2fr 1fr 1fr ;
