@@ -33,5 +33,27 @@ const button2= document.getElementById('btn2');
 
 // event listeners//
 
-document.getElementById("btn1").addEventListener("click", handleBOne);
-document.getElementById("btn2").addEventListener("click", handleBTwo);
+document.getElementById("btn1").addEventListener("click", choiceOne);
+document.getElementById("btn2").addEventListener("click", choiceTwo);
+document.getElementById("start").addEventListener("click", start);
+document.getElementById("reset").addEventListener("click", reset);
+
+
+
+// functions
+function start(){
+
+}
+
+function choiceOne(){
+
+}
+
+function choiceTwo(){
+
+}
+
+
+function reset(evt) {
+    window.location.reload();
+  }
