@@ -11,7 +11,7 @@ const story = {
 
  rooms22:"Once inside the car you pull back onto the main road as it begins to rain heavily ",
  
- driving21:"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness   ",
+ driving21:"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness the last thing you see is a shadowy figure dragging your partner from the crash you can hear their desperate screams for help but its to late and the world goes black .. ",
  
   
  driving22:"",
