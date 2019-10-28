@@ -10,6 +10,11 @@ const story = {
  rooms21:" Once inside the couple offers you coffee and cake while taking your things to the spare bedroom.",
 
  rooms22:"Once inside the car you pull back onto the main road as it begins to rain heavily ",
+ 
+ driving21:"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness   ",
+ 
+  
+ driving22:"",
 }
 
 const selected = {
