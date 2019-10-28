@@ -32,5 +32,6 @@ const button2= document.getElementById('btn2');
 
 
 // event listeners//
-document.getElementById('btn1').addEventListener('click', story1);
-document.getElementById('btn2').addEventListener('click', story2);
+
+document.getElementById("btn1").addEventListener("click", handleBOne);
+document.getElementById("btn2").addEventListener("click", handleBTwo);

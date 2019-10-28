@@ -16,13 +16,15 @@ background-image: url('https://i.imgur.com/ERjpHmu.jpg');
 }
 
 header {
-font-family: 'Creepster', cursive;
-font-size: 35px;
-text-shadow: 0 0 15px rgb(64, 255, 0);
-color:#8E2A8D;
-display: flex;
-justify-content: center;
-padding: 10px ;
+  display:flex;
+  align-content: center;
+  justify-content:center; 
+
+ font-family: 'Creepster', cursive;
+ font-size: 35px;
+ text-shadow: 0 0 15px rgb(64, 255, 0);
+ color:#8E2A8D;
+
 }
 section { 
   
@@ -32,8 +34,9 @@ grid-template-rows: 3fr 2fr 1fr 1fr ;
 border: 2vmin solid #8E2A8D;
 box-shadow: 0 0 20px rgb(64, 255, 0);
 margin: 0 auto;
-height: 75vh;
+height: 70vh;
 width:90vh;
+padding: 20px;
 }
 p{
 font-family: 'Cormorant Garamond', serif;
@@ -70,4 +73,11 @@ grid-row :3/4;
 #btn2{
 grid-column:2/4;
 grid-row :4/5;
+}
+
+footer{
+display: flex;
+align-content: center;
+justify-content:center; 
+padding:20px;
 }
