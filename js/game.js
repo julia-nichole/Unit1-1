@@ -18,18 +18,18 @@ const story = {
 }
 
 const selected = {
-    loadingScreens:{button1:"choose",button2:"wisely"},
-    intro1:{button1: "stop to see if they rent rooms", button2:"continue driving",},
-    rooms1:{button1:" You decide to take the nice couple up on their offer and they welcome you inside ",button2:"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car ",},
-    driving1:{button1:"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", button2:" You decide to speed up the car but continue in search of the nearest lodging "},
+    loadingScreens:{buttonOne:"choose",buttonTwo:"wisely"},
+    intro1:{buttonOne: "stop to see if they rent rooms", buttonTwo:"continue driving",},
+    rooms1:{buttonOne:" You decide to take the nice couple up on their offer and they welcome you inside ",buttonTwo:"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car ",},
+    driving1:{buttonOne:"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", buttonTwo:" You decide to speed up the car but continue in search of the nearest lodging "},
 }
 
 
 
 // cached elements :
 const msg = document.getElementById('game');
-const buttonOne = document.getElementById('btn1');
-const buttonTwo = document.getElementById('btn2');
+const button1 = document.getElementById('btn1');
+const button2 = document.getElementById('btn2');
 const headerEl = document.querySelector('header');
 const sectionEl = document.getElementById('gamemsg');
 const start = document.getElementById('start');
@@ -37,8 +37,8 @@ const resetEl = document.getElementById('reset');
 // event listeners//
 
 
-document.getElementById("btn1").addEventListener("click", buttonOne);
-document.getElementById("btn2").addEventListener("click", buttonTwo);
+document.getElementById("btn1").addEventListener("click",storyOne );
+document.getElementById("btn2").addEventListener("click", storyTwo);
 document.getElementById("start").addEventListener("click", startStory);
 document.getElementById("reset").addEventListener("click", resetGame);
 
@@ -46,29 +46,28 @@ document.getElementById("reset").addEventListener("click", resetGame);
 // functions
 var state;
 init();
-function startStory(evt){
+function startStory(evt){ 
 switch (state){
     case story.loadingScreen:
-        buttonOne.textContent = selected.loadingScreens['button1'];
-        buttonTwo.textContent = selected.loadingScreens['button2'];
-     break;
-     case story.intro:
-            buttonOne.textContent = selected.intro['button1'];
-            buttonTwo.textContent = selected.intro['button2'];
-    break;
+        state = story.intro
+        break;
     default:
 }
 }
 
-function choiceOne(){
- console.log('partyuyuuutljshdlfkjhgdf')
+function storyOne(){
+    switch (state) {
+        case story.intro:
+          state = story.rooms21;
+          break;
+        case story.rooms:
+          state = story.rooms22;
+          break;
+    default:
+}}
+function storyTwo(){
+
 }
-
-function choiceTwo(){
-
-}
-
-
 function resetGame(evt) {
     window.location.reload();
   }
