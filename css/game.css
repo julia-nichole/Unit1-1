@@ -65,9 +65,12 @@ button{
 
  
 
+   button:hover
+  {
+     font-weight: bold;
+     font-size: 4vmin;
 
-
-
+   }
 
 #btn1{
 grid-column:2/4;

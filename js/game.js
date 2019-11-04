@@ -9,12 +9,13 @@ const story = {
 
  rooms21:" Once inside the couple offers you coffee and cake while taking your things to the spare bedroom.",
 
- rooms22:"Once inside the car you pull back onto the main road as it begins to rain heavily ",
+ rooms22:" after getting back in the car and driving for a bit it begins to rain heavily making it difficult to see whats in front of you . ",
  
  driving21:"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness the last thing you see is a shadowy figure dragging your partner from the crash you can hear their desperate screams for help but its to late and the world goes black .. ",
  
   
  driving22:"",
+ 
 }
 
 const selected = {
@@ -22,6 +23,8 @@ const selected = {
     intro1:{buttonOne: "stop to see if they rent rooms", buttonTwo:"continue driving",},
     rooms1:{buttonOne:" You decide to take the nice couple up on their offer and they welcome you inside ",buttonTwo:"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car ",},
     driving1:{buttonOne:"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", buttonTwo:" You decide to speed up the car but continue in search of the nearest lodging "},
+    eatOrNot:{buttonOne:"You decline any refreshments but your partner eagerly takes some. ",buttonTwo:"You and your partner graciously accept you haven't eaten since the morning and are starving."}
+ 
 }
 
 
