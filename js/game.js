@@ -9,20 +9,25 @@ const story = {
 
  rooms21:" Once inside the couple offers you coffee and cake while taking your things to the spare bedroom.",
 
- rooms22:" after getting back in the car and driving for a bit it begins to rain heavily making it difficult to see whats in front of you . ",
+ dontStay1:" after getting back in the car and driving for a bit it begins to rain heavily making it difficult to see whats in front of you . ",
  
- driving21:"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness the last thing you see is a shadowy figure dragging your partner from the crash you can hear their desperate screams for help but its to late and the world goes black .. ",
- 
-  
- driving22:"",
- 
+ sideRoad :"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness the last thing you see is a shadowy figure dragging your partner from the crash you can hear their desperate screams for help but its to late and the world goes black .. ",
+ rainPull:"After about 15 min the rain dies down and you are able to get to the next exit and find a motel to stay in for the night.  ",
+ rainContin:"", 
+
+ notEat:"You notice the elderly couple strangely watching your partner as if they are waiting for something...Suddenly your partner starts foaming at the mouth, choking on their own saliva. You rush to their side desperately trying to figure out how to help them in your own panic you don't realise the old couple closing in on you and the old man bashes you in the back of the head with a lamp. "
 }
 
 const selected = {
     loadingScreens:{buttonOne:"choose",buttonTwo:"wisely"},
     intro1:{buttonOne: "stop to see if they rent rooms", buttonTwo:"continue driving",},
     rooms1:{buttonOne:" You decide to take the nice couple up on their offer and they welcome you inside ",buttonTwo:"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car ",},
+    dontStay2:{buttonOne:" pull over and wait for the rain to calm down " , buttontwo:" continue driving it just rain and you want to get to a hotel soon"},
+  
+   
     driving1:{buttonOne:"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", buttonTwo:" You decide to speed up the car but continue in search of the nearest lodging "},
+    
+    
     eatOrNot:{buttonOne:"You decline any refreshments but your partner eagerly takes some. ",buttonTwo:"You and your partner graciously accept you haven't eaten since the morning and are starving."}
  
 }
@@ -52,16 +57,17 @@ init();
 function startStory(evt){ 
 switch (state){
     case story.loadingScreen:
-        state = story.intro
+        state = story.loadingScreen
         break;
     default:
 }
+render();
 }
 
 function storyOne(){
     switch (state) {
-        case story.intro:
-          state = story.rooms21;
+        case story.loadingScreen:
+          state = story.intro;
           break;
         case story.rooms:
           state = story.rooms22;
@@ -69,7 +75,11 @@ function storyOne(){
     default:
 }}
 function storyTwo(){
-
+switch (state){
+  case story.loadingScreen:
+    state = story.intro;
+    break;
+}
 }
 function resetGame(evt) {
     window.location.reload();
@@ -83,4 +93,13 @@ function resetGame(evt) {
   function init(){
       state = story.loadingScreen;
       render();
+  }
+
+  function stateSwitch(){
+    switch(state){
+      case story.loadingScreen:
+        button1.textContent = selected.loadingScreen["btn1"];
+        button2.textContent = selected.loadingScreen["btn2"];
+        break;
+    }
   }
