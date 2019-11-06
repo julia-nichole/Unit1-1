@@ -26,12 +26,12 @@ const selected = {
     
     intro:{"btn1": "stop to see if they rent rooms", "btn2":"continue driving",},
     
-    rooms1:{"btn1":" You decide to take the nice couple up on their offer and they welcome you inside ","btn2":"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car ",},
+    rooms:{"btn1":" You decide to take the nice couple up on their offer and they welcome you inside ","btn2":"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car "},
     
     dontStay2:{"btn1":" pull over and wait for the rain to calm down " , "btn2":" continue driving it just rain and you want to get to a hotel soon"},
   
    
-    driving1:{"btn1":"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", "btn2":" You decide to speed up the car but continue in search of the nearest lodging "},
+    driving:{"btn1":"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", "btn2":" You decide to speed up the car but continue in search of the nearest lodging "},
     
     
     eatOrNot:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."}
@@ -77,8 +77,9 @@ function storyOne(){
           break;
         case story.intro:
           state = story.rooms;
-        case story.rooms1:
-        state = story.rooms1;
+          break;
+        case story.rooms:
+        state = story.rooms21;
           break;
     default:
 }}
@@ -87,6 +88,14 @@ switch (state){
   case story.onLoad:
     state = story.intro;
     break;
+    case story.intro:
+    state = story.driving;
+    break;
+    case story.driving:
+    state = story.sideRoad;
+    sectionEl.style.fontSize = "30px";
+    break;
+    
   default:  
 }
 }
@@ -105,7 +114,7 @@ function resetGame(evt) {
   }
 
   function stateSwitch(){
-    switch(state){
+    switch(state) {
       case story.onLoad:
         button1.textContent = selected.onLoad["btn1"];
         button2.textContent = selected.onLoad["btn2"];
@@ -113,7 +122,20 @@ function resetGame(evt) {
       case story.intro:
         button1.textContent = selected.intro["btn1"];
         button2.textContent = selected.intro["btn2"];
+        button1.style.fontSize = "25px";
+        button1.style.fontFamily = "'Cormorant Garamond', serif";
+        button2.style.fontSize = "25px";
+        button2.style.fontFamily = "'Cormorant Garamond', serif"
         break;
+        case story.rooms:
+            button1.textContent = selected.rooms["btn1"];
+            button2.textContent = selected.rooms["btn2"];
+          break;
+          case story.driving:
+              button1.textContent = selected.driving["btn1"];
+              button2.textContent = selected.driving["btn2"];
+             break;
+
         default:
 
     }
