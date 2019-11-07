@@ -17,6 +17,7 @@ const story = {
  rainPull:"After about 15 min the rain dies down and you are able to get to the next exit and find a motel to stay in for the night.  ",
  
  rainContin:"", 
+  gameOver: " GAME OVER ",
 
  notEat:"You notice the elderly couple strangely watching your partner as if they are waiting for something...Suddenly your partner starts foaming at the mouth, choking on their own saliva. You rush to their side desperately trying to figure out how to help them in your own panic you don't realise the old couple closing in on you and the old man bashes you in the back of the head with a lamp. "
 }
@@ -34,8 +35,8 @@ const selected = {
     driving:{"btn1":"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", "btn2":" You decide to speed up the car but continue in search of the nearest lodging "},
     
     
-    eatOrNot:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."}
- 
+    eatOrNot:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."},
+     gameOver:{"btn1":"" ,"btn2":""},
 }
 
 
@@ -95,6 +96,10 @@ switch (state){
     state = story.sideRoad;
     sectionEl.style.fontSize = "30px";
     break;
+    case story.sideRoad:
+      state = story.gameOver;
+
+
     
   default:  
 }
@@ -135,7 +140,15 @@ function resetGame(evt) {
               button1.textContent = selected.driving["btn1"];
               button2.textContent = selected.driving["btn2"];
              break;
+             case story.sideRoad:
+                button1.textContent = selected.driving["btn1"];
+                button2.textContent = selected.driving["btn2"];
+               break;
+               case story.gameOver:
+               button1.textContent = "You"
+               button2.textContent ="Failed";
 
+              break;
         default:
 
     }
