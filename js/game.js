@@ -35,7 +35,7 @@ const selected = {
     driving:{"btn1":"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", "btn2":" You decide to speed up the car but continue in search of the nearest lodging "},
     
     
-    eatOrNot:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."},
+    rooms21:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."},
      gameOver:{"btn1":"" ,"btn2":""},
 }
 
@@ -82,6 +82,13 @@ function storyOne(){
         case story.rooms:
         state = story.rooms21;
           break;
+          case story.driving:
+              state = story.sideRoad;
+              sectionEl.style.fontSize = "30px";
+          break;
+          case story.sideRoad:
+      state = story.gameOver;
+    break;  
     default:
 }}
 function storyTwo(){
@@ -94,12 +101,9 @@ switch (state){
     break;
     case story.driving:
     state = story.sideRoad;
-    sectionEl.style.fontSize = "30px";
+    
     break;
-    case story.sideRoad:
-      state = story.gameOver;
-
-
+  
     
   default:  
 }
@@ -141,14 +145,18 @@ function resetGame(evt) {
               button2.textContent = selected.driving["btn2"];
              break;
              case story.sideRoad:
-                button1.textContent = selected.driving["btn1"];
-                button2.textContent = selected.driving["btn2"];
+                button1.textContent = selected.gameOver["btn1"];
+                button2.textContent = selected.gameOver["btn2"];
                break;
                case story.gameOver:
                button1.textContent = "You"
                button2.textContent ="Failed";
 
               break;
+              case story.rooms21:
+                button1.textContent = selected.rooms21["btn1"];
+                button2.textContent = selected.rooms21["btn2"];
+                break;
         default:
 
     }
