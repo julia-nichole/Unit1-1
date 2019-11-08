@@ -19,7 +19,9 @@ const story = {
  rainContin:"", 
   gameOver: " GAME OVER ",
 
- notEat:"You notice the elderly couple strangely watching your partner as if they are waiting for something...Suddenly your partner starts foaming at the mouth, choking on their own saliva. You rush to their side desperately trying to figure out how to help them in your own panic you don't realise the old couple closing in on you and the old man bashes you in the back of the head with a lamp. "
+ notEat:"You notice the elderly couple strangely watching your partner as if they are waiting for something...Suddenly your partner starts foaming at the mouth, choking on their own saliva. You rush to their side desperately trying to figure out how to help them in your own panic you don't realise the old couple closing in on you and the old man bashes you in the back of the head with a lamp. ",
+ eat:"You notice the elderly couple strangely watching you and your partner as if they are waiting for something... suddenly you are struggling to breathe and your body begins to convulse as the old couple closes in on you.",
+ survived:" YOU SURVIVED!",
 }
 
 const selected = {
@@ -37,6 +39,7 @@ const selected = {
     
     rooms21:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."},
      gameOver:{"btn1":"..." ,"btn2":"..."},
+     survived:{"btn1": "...", "btn2":"..."},
 }
 
 
@@ -94,9 +97,14 @@ function storyOne(){
       state = story.notEat;
       sectionEl.style.fontSize = "27px";
       break;
-      case story.notEat:
-          state = story.gameOver;
-        break;  
+    case story.notEat:
+      state = story.gameOver;
+      break;  
+      case story.dontStay1:
+        state = story.rainPull;
+        break;
+      case story.rainPull:
+        state = story.survived;
     default:
 }}
 function storyTwo(){
@@ -104,19 +112,23 @@ switch (state){
   case story.onLoad:
     state = story.intro;
     break;
-    case story.intro:
+  case story.intro:
     state = story.driving;
     break;
-    case story.rooms:
+  case story.rooms:
     state = story.dontStay1;
-   
     break;
-  
-  
-    case story.sideRoad:
-        state = story.gameOver;
-      break;  
+  case story.sideRoad:
+    state = story.gameOver;
+    break;  
+ case story.rooms21:
+      state = story.eat;
+      break; 
+  case story.eat:
+    state = story.gameOver;
+    break;    
   default:  
+
 }
 }
 function resetGame(evt) {
@@ -155,30 +167,47 @@ function resetGame(evt) {
               button1.textContent = selected.driving["btn1"];
               button2.textContent = selected.driving["btn2"];
              break;
-             case story.sideRoad:
-                button1.textContent = selected.gameOver["btn1"];
-                button2.textContent = selected.gameOver["btn2"];
-               break;
-               case story.gameOver:
+          case story.sideRoad:
+              button1.textContent = selected.gameOver["btn1"];
+              button2.textContent = selected.gameOver["btn2"];
+              break;
+          case story.gameOver:
                button1.textContent = "You"
                button2.textContent ="Failed";
-              text.style.color ="red";
-              text.style.fontSize ="40px";
-             sectionEl.style.backgroundImage = 'url("https://i.imgur.com/0LwksRx.jpg")';
-             sectionEl.style.backgroundSize ="cover";
+               text.style.color ="red";
+               text.style.fontSize ="40px";
+               sectionEl.style.backgroundImage = 'url("https://i.imgur.com/0LwksRx.jpg")';
+               sectionEl.style.backgroundSize ="cover";
               break;
-              case story.rooms21:
-                button1.textContent = selected.rooms21["btn1"];
-                button2.textContent = selected.rooms21["btn2"];
+          case story.rooms21:
+               button1.textContent = selected.rooms21["btn1"];
+               button2.textContent = selected.rooms21["btn2"];
+              break;
+          case story.dontStay1:
+               button1.textContent = selected.dontStay1["btn1"];
+               button2.textContent = selected.dontStay1["btn2"];
                 break;
-                case story.dontStay1:
-                  button1.textContent = selected.dontStay1["btn1"];
-                  button2.textContent = selected.dontStay1["btn2"];
-                  break;
-                  case story.notEat:
-                      button1.textContent = selected.gameOver["btn1"];
-                      button2.textContent = selected.gameOver["btn2"];
-                      break;
+            case story.notEat:
+                 button1.textContent = selected.gameOver["btn1"];
+                 button2.textContent = selected.gameOver["btn2"];
+                break;
+            case story.eat:
+                 button1.textContent = selected.gameOver["btn1"];
+                 button2.textContent = selected.gameOver["btn2"];
+                break;
+            case story.rainPull:
+                 button1.textContent = selected.survived["btn1"];
+                 button2.textContent = selected.survived["btn2"];
+                 break;
+            case story.survived:
+                button1.textContent = "CONGRATS";
+                button2.textContent = "!!!";
+                text.style.color ="blue";
+                text.style.fontSize ="40px";
+                sectionEl.style.backgroundImage = 'url(https://i.imgur.com/yohJSpi.jpg)';
+                sectionEl.style.backgroundSize ="cover";
+                    break;
+                         
         default:
 
     }
