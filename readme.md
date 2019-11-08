@@ -4,7 +4,7 @@
 
 ## WireFrames 
 ![Image description](https://i.imgur.com/QUG09uq.png)
-![Image description](https://i.imgur.com/hduB9el.png)
+![Image description](https://i.imgur.com/YyYKFEN.png)
 ## tech used 
 * javascript 
 * html
