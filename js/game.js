@@ -29,7 +29,7 @@ const selected = {
     
     rooms:{"btn1":" You decide to take the nice couple up on their offer and they welcome you inside ","btn2":"The couple gives you major creeper vibes. So you politely decline their offer and high tail it back to the car "},
     
-    dontStay2:{"btn1":" pull over and wait for the rain to calm down " , "btn2":" continue driving it just rain and you want to get to a hotel soon"},
+    dontStay1:{"btn1":" pull over and wait for the rain to calm down " , "btn2":" continue driving it just rain and you want to get to a hotel soon"},
   
    
     driving:{"btn1":"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", "btn2":" You decide to speed up the car but continue in search of the nearest lodging "},
@@ -49,6 +49,7 @@ const headerEl = document.querySelector('header');
 const sectionEl = document.getElementById('gamemsg');
 const start = document.getElementById('start');
 const resetEl = document.getElementById('reset');
+const text = document.querySelector("p");
 // event listeners//
 
 
@@ -58,7 +59,7 @@ document.getElementById("start").addEventListener("click", startStory);
 document.getElementById("reset").addEventListener("click", resetGame);
 
 var state;
-// functions
+// functions//
 
 init();
 function startStory(evt){ 
@@ -99,12 +100,14 @@ switch (state){
     case story.intro:
     state = story.driving;
     break;
-    case story.driving:
-    state = story.sideRoad;
-    
+    case story.rooms:
+    state = story.dontStay1;
     break;
   
-    
+  
+    case story.sideRoad:
+        state = story.gameOver;
+      break;  
   default:  
 }
 }
@@ -151,12 +154,19 @@ function resetGame(evt) {
                case story.gameOver:
                button1.textContent = "You"
                button2.textContent ="Failed";
-
+              text.style.color ="red";
+              text.style.fontSize ="40px";
+             sectionEl.style.backgroundImage = 'url("https://i.imgur.com/0LwksRx.jpg")';
+             sectionEl.style.backgroundSize ="cover";
               break;
               case story.rooms21:
                 button1.textContent = selected.rooms21["btn1"];
                 button2.textContent = selected.rooms21["btn2"];
                 break;
+                case story.dontStay1:
+                  button1.textContent = selected.dontStay1["btn1"];
+                  button2.textContent = selected.dontStay1["btn2"];
+                  break;
         default:
 
     }
