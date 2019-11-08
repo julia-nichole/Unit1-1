@@ -36,7 +36,7 @@ const selected = {
     
     
     rooms21:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."},
-     gameOver:{"btn1":"" ,"btn2":""},
+     gameOver:{"btn1":"..." ,"btn2":"..."},
 }
 
 
@@ -90,6 +90,13 @@ function storyOne(){
           case story.sideRoad:
       state = story.gameOver;
     break;  
+    case story.rooms21:
+      state = story.notEat;
+      sectionEl.style.fontSize = "27px";
+      break;
+      case story.notEat:
+          state = story.gameOver;
+        break;  
     default:
 }}
 function storyTwo(){
@@ -102,6 +109,7 @@ switch (state){
     break;
     case story.rooms:
     state = story.dontStay1;
+   
     break;
   
   
@@ -167,6 +175,10 @@ function resetGame(evt) {
                   button1.textContent = selected.dontStay1["btn1"];
                   button2.textContent = selected.dontStay1["btn2"];
                   break;
+                  case story.notEat:
+                      button1.textContent = selected.gameOver["btn1"];
+                      button2.textContent = selected.gameOver["btn2"];
+                      break;
         default:
 
     }
