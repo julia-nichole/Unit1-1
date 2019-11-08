@@ -16,8 +16,8 @@ const story = {
  
  rainPull:"After about 15 min the rain dies down and you are able to get to the next exit and find a motel to stay in for the night.  ",
  pass:"The truck passes you and you pull over at the next exit and find a motel for the night.",
- rainContin:"", 
-  gameOver: " GAME OVER ",
+ rainContin:"you continue to drive trying your best to see through the rain but you lose control and slam into a tree. ",
+ gameOver: " GAME OVER ",
 
  notEat:"You notice the elderly couple strangely watching your partner as if they are waiting for something...Suddenly your partner starts foaming at the mouth, choking on their own saliva. You rush to their side desperately trying to figure out how to help them in your own panic you don't realise the old couple closing in on you and the old man bashes you in the back of the head with a lamp. ",
  eat:"You notice the elderly couple strangely watching you and your partner as if they are waiting for something... suddenly you are struggling to breathe and your body begins to convulse as the old couple closes in on you.",
@@ -61,7 +61,8 @@ document.getElementById("btn2").addEventListener("click", storyTwo);
 document.getElementById("start").addEventListener("click", startStory);
 document.getElementById("reset").addEventListener("click", resetGame);
 
-var state;
+let state;
+let audio = new Audio("250965__pertti-orn__carcrash-heartbeat-slomo.wav")
 // functions//
 
 init();
@@ -86,9 +87,9 @@ function storyOne(){
         case story.rooms:
         state = story.rooms21;
           break;
-          case story.driving:
-              state = story.sideRoad;
-              sectionEl.style.fontSize = "30px";
+        case story.driving:
+            state = story.sideRoad;
+            sectionEl.style.fontSize = "30px";
           break;
           case story.sideRoad:
       state = story.gameOver;
@@ -106,6 +107,9 @@ function storyOne(){
       case story.rainPull:
         state = story.survived;
         break;
+     case story.rainContin:
+    state = story.gameOver;
+    break;
     default:
 }}
 function storyTwo(){
@@ -136,6 +140,11 @@ switch (state){
     break;     
   case story.dontStay1:
     state = story.rainContin;
+  
+    break;
+  case story.rainContin:
+    state = story.gameOver;
+    audio.play();
     break;
   default:  
 
@@ -220,7 +229,11 @@ function resetGame(evt) {
             case story.pass:
                 button1.textContent = selected.survived["btn1"];
                 button2.textContent = selected.survived["btn2"];  
-                break;          
+                break;    
+            case story.rainContin:
+                button1.textContent = selected.gameOver["btn1"];
+                button2.textContent = selected.gameOver["btn2"];  
+                break;       
         default:
 
     }

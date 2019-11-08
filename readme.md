@@ -9,3 +9,6 @@
 * javascript 
 * html
 * css 
+## stretch goals 
+* fix start button bug 
+* add audio to each choice made
