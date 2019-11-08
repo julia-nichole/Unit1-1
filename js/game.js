@@ -15,7 +15,7 @@ const story = {
  sideRoad :"You pull off into the side road but the truck still follows it has sped up and is right behind you. You try to swerve but the back roads are small and you crash into the ditch. As you begin to lose consciousness the last thing you see is a shadowy figure dragging your partner from the crash you can hear their desperate screams for help but its to late and the world goes black .. ",
  
  rainPull:"After about 15 min the rain dies down and you are able to get to the next exit and find a motel to stay in for the night.  ",
- 
+ pass:"The truck passes you and you pull over at the next exit and find a motel for the night.",
  rainContin:"", 
   gameOver: " GAME OVER ",
 
@@ -34,7 +34,7 @@ const selected = {
     dontStay1:{"btn1":" pull over and wait for the rain to calm down " , "btn2":" continue driving it just rain and you want to get to a hotel soon"},
   
    
-    driving:{"btn1":"Paranoia sets in so you decide tp pull off onto the next side road to see if the truck follows. ", "btn2":" You decide to speed up the car but continue in search of the nearest lodging "},
+    driving:{"btn1":"Paranoia sets in so you decide to pull off onto the next side road to see if the truck follows. ", "btn2":" You slow down to see if the truck will pass you "},
     
     
     rooms21:{"btn1":"You decline any refreshments but your partner eagerly takes some. ","btn2":"You and your partner graciously accept you haven't eaten since the morning and are starving."},
@@ -105,6 +105,7 @@ function storyOne(){
         break;
       case story.rainPull:
         state = story.survived;
+        break;
     default:
 }}
 function storyTwo(){
@@ -126,7 +127,16 @@ switch (state){
       break; 
   case story.eat:
     state = story.gameOver;
-    break;    
+    break;
+  case story.driving:
+    state = story.pass;
+    break; 
+  case story.pass:
+    state = story.survived;
+    break;     
+  case story.dontStay1:
+    state = story.rainContin;
+    break;
   default:  
 
 }
@@ -207,7 +217,10 @@ function resetGame(evt) {
                 sectionEl.style.backgroundImage = 'url(https://i.imgur.com/yohJSpi.jpg)';
                 sectionEl.style.backgroundSize ="cover";
                     break;
-                         
+            case story.pass:
+                button1.textContent = selected.survived["btn1"];
+                button2.textContent = selected.survived["btn2"];  
+                break;          
         default:
 
     }
